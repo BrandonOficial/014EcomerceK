@@ -17,9 +17,19 @@
     --white-color: #ffffff;
     --transition: 0.4s;
     --transition2: 0.6s; 
+    --transition3: 0.1s; 
     --Albert-font: 'Albert Sans', sans-serif;
 }
-
+img {
+    width: 100%;
+}
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 12%;
+}
 nav {
     width: 100%;
     height: 100px;
@@ -88,6 +98,135 @@ nav {
 .hero_content h2 {
     font-size: 2rem;
     font-weight: 500;
-    animation: fade_top var(--transition2) 1.5s forwards linear;
-    /* opacity: 0; */
+    animation: fade_top var(--transition2) 1.7s forwards linear;
+    opacity: 0;
+}
+.hero_content h1 {
+    font-size: 5.5rem;
+    line-height: 6.5rem;
+    animation: fade_top var(--transition2) 2.4s forwards linear;
+    opacity: 0;
+}
+button {
+    width: 230px;
+    height: 50px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border: 1px solid var(--black-color);
+    transition: var(--transition);
+    border-radius: 5px;
+    animation: fade_top var(--transition2) 2.7s forwards linear;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(110deg, rgba(0,0,0,0)30%, rgba(255,255,255,0.5)50%, rgba(0,0,0,0)100%);
+    transition: var(--transition2);
+    cursor: pointer;
+}
+button:hover::after {
+    left: 70%;
+}
+button i {
+    font-size: 1.5rem;
+}
+.hero_content button {
+    margin: 20px 0;
+}
+
+@keyframes fade_top {
+    0% {
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*  Product slide */
+.product_slider {
+    padding: 1% 12%;
+}
+.productSwiper {
+    width: 100%;
+    border: 1px solid rgba(131,131,131,0.5);
+    border-radius: 10px;
+    padding: 2% 0 !important;
+}
+.product_slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.product_img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.product_img img {
+    transition: var(--transition3);
+}
+.product_slide:hover .product_img img {
+    transform: scale(1.1);
+}
+.product_slide a {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    color: var(--black-color);
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+.product_slide a:hover {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+/* Brands */
+.brands {
+    padding: 1% 12%;
+}
+.brandSwiper {
+    width: 100%;
+    border: 1px solid rgba(131,131,131,0.5);
+    border-radius: 10px;
+    padding: 0 2% !important;
+}
+.brand_img {
+    width: 200px;
+    transition: var(--transition3);
+}
+.brand_img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
